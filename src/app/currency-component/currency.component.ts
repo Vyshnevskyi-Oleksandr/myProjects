@@ -35,11 +35,21 @@ export class CurrencyComponent {
   }
 
   public onFirstSelectionChange(selectedOption: string): void {
-    this.firstSelectorRate = this.getRate(selectedOption)
+    if (selectedOption) {
+      this.firstSelectorRate = this.getRate(selectedOption)
+    }
+    if (this.firstInputValue) {
+      this.onFirstInputChange(this.firstInputValue)
+    }
   }
 
   public onSecondSelectionChange(selectedOption: string): void {
-    this.secondSelectorRate = this.getRate(selectedOption)
+    if (selectedOption) {
+      this.secondSelectorRate = this.getRate(selectedOption)
+    }
+    if (this.secondInputValue) {
+      this.onSecondInputChange(this.secondInputValue)
+    }
   }
 
   private getRate(selectedOption: string): number {
