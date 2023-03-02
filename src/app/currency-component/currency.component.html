@@ -1,0 +1,38 @@
+<div class="currency_wrapper">
+  <div class="currency_block">
+    <div class="form-wrapper">
+      <input
+        type="number"
+        [(ngModel)]="firstInputValue"
+        (input)="onFirstInputChange(firstInputValue)"
+        class="currency_input"
+        [placeholder]="'Select currencies'"
+        [disabled]="!selectedFirstOption"
+      >
+      <select
+        class="form-select"
+        id="field_investorTypeId"
+        [(ngModel)]="selectedFirstOption"
+        (ngModelChange)="onFirstSelectionChange(selectedFirstOption)">
+        <option [value]="option.cc" *ngFor="let option of currency">{{ option.cc}}</option>
+      </select>
+    </div>
+
+    <div class="form-wrapper">
+      <input
+        type="number"
+        [(ngModel)]="secondInputValue"
+        (input)="onSecondInputChange(secondInputValue)"
+        class="currency_input"
+        [placeholder]="'Select currencies'"
+        [disabled]="!selectedSecondOption"
+      >
+      <select
+        class="form-select"
+        [(ngModel)]="selectedSecondOption"
+        (ngModelChange)="onSecondSelectionChange(selectedSecondOption)">
+        <option [value]="option.cc" *ngFor="let option of currency">{{ option.cc}}</option>
+      </select>
+    </div>
+  </div>
+</div>
