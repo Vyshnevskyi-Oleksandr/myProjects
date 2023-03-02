@@ -27,19 +27,29 @@ export class CurrencyComponent {
   public selectedSecondOption!: string;
 
   public onFirstInputChange(value: number) {
-    this.secondInputValue = Number(value * this.getConverterCurrency(true))
+    this.secondInputValue = parseFloat((value * this.getConverterCurrency(true)).toFixed(2));
   }
 
   public onSecondInputChange(value: number) {
-    this.firstInputValue = value * this.getConverterCurrency( false)
+    this.firstInputValue = parseFloat((value * this.getConverterCurrency(false)).toFixed(2));
   }
 
   public onFirstSelectionChange(selectedOption: string): void {
-    this.firstSelectorRate = this.getRate(selectedOption)
+    if (selectedOption) {
+      this.firstSelectorRate = this.getRate(selectedOption)
+    }
+    if (this.firstInputValue) {
+      this.onFirstInputChange(this.firstInputValue)
+    }
   }
 
   public onSecondSelectionChange(selectedOption: string): void {
-    this.secondSelectorRate = this.getRate(selectedOption)
+    if (selectedOption) {
+      this.secondSelectorRate = this.getRate(selectedOption)
+    }
+    if (this.secondInputValue) {
+      this.onSecondInputChange(this.secondInputValue)
+    }
   }
 
   private getRate(selectedOption: string): number {

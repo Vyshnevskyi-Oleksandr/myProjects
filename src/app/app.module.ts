@@ -1,7 +1,6 @@
 import {NgModule, isDevMode} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {EffectsModule} from "@ngrx/effects";
@@ -19,7 +18,6 @@ import {CurrencyService} from "./shared/services/get-currency/get-currency.servi
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HeaderModule,
     CurrencyModule,
     HttpClientModule,
